@@ -400,7 +400,7 @@ def patch_fixture(
 
     @pytest.fixture(scope=scope, autouse=autouse)
     def _fixture(pytestconfig):
-        if not pytestconfig.pluginmanager.hasplugin("localstack"):
+        if not pytestconfig.pluginmanager.hasplugin("pytest_localstack"):
             pytest.skip("skipping because localstack plugin isn't loaded")
         with _make_session(
             docker_client=docker_client,
